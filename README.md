@@ -1,0 +1,1 @@
+# Angular-Capacitor-Firebase-Setup

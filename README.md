@@ -3,6 +3,8 @@ Angular Cordova GCloud Firebase development environment setup
 
 The development environment setup in this episode will further be utilized in multiple desktop, web and mobile apps development in near future.
 
+[Click here for Video Tutorials !](https://www.youtube.com/watch?v=Tua9Cbw_YgU&list=PLp0TENYyY8lF1I4EgKLcwRvxy820BgWpd)
+
 ### Introduction:
 Angular is framework supported by Google, which lets you build Progressive Web apps, mobile apps for iOS, Android, Windows environment and desktop software for Windows, Mac and Linux machines.
 www.angular.io

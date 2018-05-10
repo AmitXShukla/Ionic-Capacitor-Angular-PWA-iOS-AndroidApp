@@ -53,12 +53,50 @@ JavaScript project with module loading support. For example, using Webpack or Ro
 JavaScript project with module loading support. For example, using Webpack or Rollup<br>
 
 <h4>Development :</h4>
+<h5>Adding Capacitor to an existing web app</h5>
+Capacitor was designed to drop-in to any existing modern JS web app.<br>
+To add Capacitor to your web app, run the following commands:<br><br>
+
+<h5>$ cd my-app</h5><br>
+<h5>$ npm install --save @capacitor/core @capacitor/cli</h5><br>
+Then, init Capacitor with your app information. This will also install the default native platforms.
+<br><br>
+<h5>$ npx cap init</h5><br>
+This command will prompt you to enter the name of your app, the app id (used primarily as the package for android), and the directory of your app.<br>
+Capacitor is now installed in your project<br><br>
+
 npm run build // for npm projects<br>
-ng build // for Angular 6.0+ projects<br>
+<h5>ng build </h5>// for Angular 6.0+ projects<br>
 ionic build // for Ionic projects<br>
 
 <h4>Capacitor : PWA - Progressive Web App</h4>
-<h5>With a Build System</h5> // if you are using Angular or React npm build (like ng build)<br>
+<h5>With a Build System</h5> // if you are using Angular or React npm build (like ng build)<br><br>
+
+<h5>$ ng build --prod // first build your angular app</h5><br>
+<h5> ** make sure in angular.json file, outputPath = "www"</h5><br>
+<h5> ** make sure in capacitor.config.json file, webDir = "www"</h5><br>
+<h5> ** make sure in capacitor.config.json file, bundledWebRuntime = "false"</h5><br>
+<h5>$ npx cap add web</h5><br>
+<h5>$ npx cap copy web</h5><br>
+<h5>$ npx cap serve</h5><br><br>
+
+<h4>Capacitor : iOS</h4>
+<h5>$ npx cap add ios</h5><br>
+<h5>$ npx cap copy ios</h5><br>// Once your web code is built, it needs to be copied to each native project<br>
+<h5>$ npx cap open ios</h5><br><br>
+
+<h4>Capacitor : Android</h4>
+<h5>$ npx cap add android</h5><br>
+<h5>$ npx cap copy android</h5><br>// Once your web code is built, it needs to be copied to each native project<br>
+<h5>$ npx cap open android</h5><br><br>
+
+<h4>Capacitor : Electron</h4>
+<h5>$ npx cap add electron</h5><br>
+<h5>$ npx cap copy electron</h5><br>// Once your web code is built, it needs to be copied to each native project<br>
+<h5>$ cd electron</h5><br>
+<h5>$ npm run electron:start</h5><br><br>
+
+<h4>Other helpful commands for PWA </h4>
 ** Directly call capacitor in your code<br>
 import { Capacitor } from '@capacitor/core';<br>
 import { Plugins } from '@capacitor/core';<br><br>
@@ -85,13 +123,6 @@ In index.html, import capacitor.js before your app's JS:<br>
 npx cap serve<br>
 When you're ready to publish your Progressive Web App and share it with the world, just upload the contents of your web directory (default: public/<br>
 
-<h4>Capacitor : iOS</h4>
-npx cap copy ios// Once your web code is built, it needs to be copied to each native project<br>
-npx cap open ios<br><br>
-
-<h4>Capacitor : Android</h4>
-npx cap copy android// Once your web code is built, it needs to be copied to each native project<br>
-npx cap open android<br><br>
 
 <h5>Commands to remember for later use</h5>
 npx cap copy

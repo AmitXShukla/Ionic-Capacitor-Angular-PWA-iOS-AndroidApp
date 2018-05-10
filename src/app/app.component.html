@@ -1,0 +1,101 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-mini-fab color="warn" (click)="drawer.toggle()">
+      <mat-icon matTooltip="Menu" svgIcon="more_vert"></mat-icon>
+    </button>
+    <mat-icon class="example-icon" matTooltip="Home">home</mat-icon>
+    <span>Home</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" matTooltip="Contact us" [matMenuTriggerFor]="menu">person_add</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <a href="https://www.facebook.com/ashuklax" target="_blank">
+    <button mat-menu-item>
+      <mat-icon matTooltip="connect with FaceBook" svgIcon="facebook"></mat-icon>
+    </button>
+  </a>
+  <a href="https://www.linkedin.com/in/ashuklax/" target="_blank">
+    <button mat-menu-item>
+      <mat-icon matTooltip="connect with LinkedIn" svgIcon="linkedin"></mat-icon>
+    </button>
+  </a>
+  <a href="https://github.com/AmitXShukla" target="_blank">
+    <button mat-menu-item>
+      <mat-icon matTooltip="connect with GitHub" svgIcon="github"></mat-icon>
+    </button>
+  </a>
+  <a href="mailto://amit@elishconsulting.com" target="_blank">
+    <button mat-menu-item>
+      <mat-icon matTooltip="email">email</mat-icon>
+    </button>
+  </a>
+</mat-menu>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            About me
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <button mat-menu-item routerLink="/aboutus">About me</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Projects
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <button mat-menu-item routerLink="/projects">Projects</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Blogs
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <button mat-menu-item routerLink="/blogs/github-hello-world">GitHub HelloWorld</button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button mat-menu-item routerLink="/blogs/angular-dev-environment">Angular Environment</button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button mat-menu-item routerLink="/blogs/angular-material">Angular Material</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-divider></mat-divider>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Videos
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <button mat-menu-item routerLink="/videos">Videos</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
+<footer></footer>

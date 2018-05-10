@@ -1,0 +1,425 @@
+<div *ngIf="blogid==='angular-material'">
+  <h2>https://amitxshukla.github.io</h2>
+
+  <a href="https://www.youtube.com/watch?v=Tua9Cbw_YgU&list=PLp0TENYyY8lF1I4EgKLcwRvxy820BgWpd" target="_blank">[Click here for Video Tutorials !]</a>
+
+  <h4> Objective: Angular Material - Static Website</h4>
+  In this tutorial, we will be using Angular Material to build a static website. And in follow up tutorials, further We will
+  enhance this webstie and implement Angular Universal and SEO for server side rendering and Search engine and social search
+  capabilities. I assume you already have a successful Angular Development environment already setup and if not, please visit
+
+  <a href="https://github.com/AmitXShukla/Angular-Capacitor-Firebase-Setup" target="_blank">https://github.com/AmitXShukla/Angular-Capacitor-Firebase-Setup</a>
+
+  First let’s install Angular Material into our App.
+
+  <h4>Step 1: Start with a brand new Angular App.</h4>
+  Let's quickly confirm angular setup/installation
+
+  <span style="color:green">VSCODE > Terminal > node -v</span> // show current node version installed
+
+  <span style="color:green">npm -v</span> // show current npm version
+
+  <span style="color:green">ng -v</span> // show current Angular-Cli version
+
+  <span style="color:green">ng new amitxshukla.github.io</span> // create a new ng app
+
+  <span style="color:green"> cd amitxshukla.github.io</span>
+
+  <span style="color:green"> ng serve</span>
+
+  <h4> Clean up tasks:</h4>
+  <b>update favicon</b> - update index.html to pick favicon from assets/icon directory and add copy new favicon.ico file to
+  assets/icon folder
+
+  <h4>update polyfill.json</h4> - In case of using web animations or if you are planning to support older browser versions. and
+  in case of adding a polyfill, please make sure to npm install related package for chosen polyfill.
+
+  <h4>update gitignore file</h4>
+  - Please include files/folder which you do not wish to include to Git Repository like
+  < dist> or
+    < node_modules> folder OR environment.ts, environment.prod.ts etc
+
+      <h4>update Angular-cli.json settings </h4>
+      "prefix": "app" get rid of "app" prefix, otherwise, this setting will prefix, all selector with this string, like FooterComponent
+      will have selector = app-footer
+
+      <h4> Step 2: Install Angular Materials</h4>
+      <span style="color:green">npm install --save @angular/material @angular/cdk</span>
+      <span style="color:green">npm install --save @angular/animations</span>
+
+      Note: @angular/animations uses the WebAnimation API that isn't supported by all browsers yet. If you want to support Material
+      component animations in these browsers, you'll have to include a polyfill.
+
+      <h4> Step 3: Include Angular Material Module</h4>
+      You have the option to either include individual Angular Material components or Create a new custom material module and import
+      this module Whichever approach you use, be sure to import the Angular Material modules after Angular's BrowserModule,
+      as the import order matters for NgModules. create a new custom material module and include this is app.module (These
+      step is included below in development tasks)
+
+      <h4> Step 4. Include a theme</h4>
+      add this to styles.css or copy this over to assets/css directory
+
+      <span style="color:green">@import "~@angular/material/prebuilt-themes/indigo-pink.css";</span>
+
+      <h4>Step 5. Gesture support</h4>
+      Some components (mat-slide-toggle, mat-slider, matTooltip) rely on HammerJS for gestures
+
+      <span style="color:green">npm install --save hammerjs</span>
+
+      <h4>Step 6 (Optional): Add Material Icons</h4>
+      If you want to use the mat-icon component with the official Material Design Icons, load the icon font in your index.html.
+
+      <span style="color:green">link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"</span>
+
+      For more information on using Material Icons, check out the Material Icons Guide. Note that mat-icon supports any font or
+      svg icons; using Material Icons is one of many options. _________________________
+
+      <h4>Development Tasks</h4>
+      create routes.ts
+
+      <span style="color:green">ng g interface shared/routes</span>
+
+      <h4> replace routes.ts text with </h4>
+      https://github.com/AmitXShukla/Angular-Material/blob/master/src/app/shared/routes.ts
+
+      <h4> include APP_ROUTES</h4> from shared/routes.ts to app.module.ts
+      <span style="color:green">(add to IMPORT section)</span>
+
+      <h4>create custom material module</h4>
+      <span style="color:green">ng g module shared/custom.material</span>
+
+      <h4>copy below content to custom.material.ts file</h4>
+
+      https://github.com/AmitXShukla/Angular-Material/blob/master/src/app/shared/custommaterial/custommaterial.module.ts
+
+      <h4>update app.module.ts</h4> to include ElishCustomMaterialModule in IMPORT section
+      <span style="color:green">(add to IMPORT section)</span>
+
+      <h4>Now You have all Angular Material dependencies installed.</h4>
+
+      _________________________
+
+      <h4>Define Website Content and requirements</h4>
+      This website will need a top tool bar. Left most icon at top tool bar will act as a home button which further toggle a left
+      navigation. (by default once leftnav is open, it stays open and can be closed by home icon at top left) Left navigation
+      Menu Items should include links to - Subscribe/ Contact About me (Tab layout About Me Askus Terms) IT Services Projects
+      Blogs Videos Terms Top tool bar should also include a mat-icon and header/title text for the page being displayed in
+      middle. At right most side of tool bar, it should include mat-icons for email, settings and social icon for contact
+
+      <b>
+        <i> All mat-icons must have a tool tip displayed</i>
+      </b>
+
+      At the bottom of the page, a footer needs to be included. This footer will have copyright statement and include all navigation
+      links for SEO rendering. _________________________
+
+      <h4>Development tasks</h4>
+      Now it's time to add header and footer components create a new footer
+
+      <span style="color:green">ng g component shared/footer</span>
+
+      update footer.html with this text
+      <span style="color:green">copyright 2018, amitxshukla.github.io</span>
+
+      <span style="color:green">import FOOTER Component to app.module.ts (add to
+        < declarations> section)</span>
+
+      update app.component.html file and include at last
+
+      <span style="color:green">
+        < footer>
+          < /footer>
+      </span>
+
+      <span style="color:green"> ng serve</span>
+
+      at this point to make sure, app displays footer statement and is running fine.
+
+      <h4>add a new header</h4>
+
+      Open app.component.ts and Include tool bar code Include material icons Include Left Navigation Fix, person_add mat-icon to
+      include links from social plugin register a new custom svgicon Fix Left-Hand navigation Create one page and link to
+      this page to router-outlet and routes.ts
+
+      <h4>Register a new custom svgicon</h4>
+
+      in case of error, include HttpClientModule
+
+      <span style="color:green">Convert all MAT-ICON for offline use</span>
+
+</div>
+<div *ngIf="blogid==='github-hello-world'">
+  <h4>GitHub-Hello-World</h4>
+  GitHub Git Commands Git Desktop Basics Installation and Commands
+
+  <a href="https://www.youtube.com/watch?v=HUkgfgJlLoM&list=PLp0TENYyY8lFMOKZ9CSWto-BizmCyokib" target="_blank">[Click here for Video Tutorials !]</a>
+
+  For any questions or queries, please open an issue or leave comments here.
+
+  <h4>Installation</h4>
+  [Desktop version] (https://desktop.github.com/) [Command Line] (https://git-scm.com/downloads) [Git Documentation] (https://git-scm.com/doc)
+  [Git Explore] (https://github.com/explore)
+
+
+  <h4>Update Windows Environment Variables</h4>
+  PATH -> C:\amit.io\Program\PortableGit\cmd (Path to Git CMD Exe) vscode -> Settings -> git.path = "C:\\\amit.io\\\Program\\PortableGit\\\cmd"
+
+
+  <h4>GitHub WorkFlow</h4>
+  This diagram is a simple GITHUB workflow. Working directory on left is a directory where you keep all your code files. Once
+  you initialize GIT on your local directory, GIT creates a compressed database where all your file changes are recorded.
+  When you are done making changes to the file, you need to add this file to staging area. And further when your file is
+  ready, you commit the file to a local repository. Remember, Local repository is a final commit to your code with latest
+  changes on it, and finally you run git push to publish this to a remote repository. This one complete life cycle of code
+  changes are recorded in one flow, which is called branch. For some reason, if you wish to experiment your file with more
+  changes without losing code to your first file, you should create a new branch and then make changes to it. After you are
+  good with your changes, you can always merge your change or keep those commit in separate branches as per your requirement.
+  One last item to understand here is, similar to pushing your committed code to files remote repository you can pull it
+  back from remote to local repository and then can start making changes.
+
+  <!--![Alt text](GitHub_workflow.png?raw=true "GitHub WorkFlow")-->
+
+  <h4>Git Pages</h4>
+  [GitHub Pages] (https://pages.github.com) At present it only supports static files hosting like HTML, JavaScript , CSS etc.
+  to showcase your personal project, blog or organization website. In future, I am hoping GitHub will provide tools to host
+  server side code from github repositories. However, you can still use a number of cloud services to host your server side
+  code directly from github.
+
+  <h4>Git GCloud Deployement</h4><br>
+  <h4>update this section</h4><br>
+
+  <h4>Git Commands</h4><br>
+
+  Command
+  Description
+  ## Config:<br>
+  
+  git config --global user.name "Amit Shukla"<br>
+  
+  git config --global user.email amit@elishconsulting.com<br>
+  
+  ## Init or Clone New Repository:<br>
+  
+  git init<br>
+  Initialize a new Repository<br>
+  git clone https://github.com/AmitXShukla/Git-Hello-World.git<br>
+  Clone an Existing Repository<br>
+  ## Status:<br>
+  
+  git status<br>
+  Check status<br>
+  git add < file_name_without_angle_brackets ><br>
+  Add a file from working to staging area<br>
+  git add -A Add All files from working to stating area<br>
+  
+  git commit -m "< your message here without angle brackets >"<br>
+  Commit changes to Local Repository<br>
+  git rm -r < file-name.txt ><br>
+  Remove a file or folder from working area<br>
+  ## Branch:<br>
+  
+  git branch<br>
+  List all branches (* means current branch)<br>
+  git branch -a<br>
+  List all branches (local & remote)<br>
+  git branch < branch_name ><br>
+  Create a new branch<br>
+  git branch -d < branch_name ><br>
+  Delete branch from local repository<br>
+  git push origin --delete < branch_name ><br>
+  Delete a remote branch<br>
+  git checkout -b < branch_name ><br>
+  Create a new branch and switch to it<br>
+  git checkout -b < branch_name> origin/< branch_name ><br>
+  Clone a remote branch and switch to it<br>
+  git checkout < branch_name ><br>
+  Switch to a branch<br>
+  git checkout<br>
+  Switch to the branch last checked out<br>
+  git checkout -- < file_name ><br>
+  Discard changes to a file<br>
+  git merge < branch_name ><br>
+  Merge a branch into the active branch<br>
+  git merge < source_branch > < target_branch ><br>
+  Merge a branch into a target branch<br>
+  git stash<br>
+  Stash changes in a dirty working directory<br>
+  git stash clear Remove all stashed entries<br>
+  
+  ## Publish:<br>
+  
+  git push origin < branch_name ><br>
+  Push a branch to your remote repository<br>
+  git push -u origin < branch_name ><br>
+  Push changes to remote repository<br>
+  git push<br>
+  Push changes to remote repository<br>
+  git push origin --delete < branch_name ><br>
+  Delete a remote branch<br>
+  git pull<br>
+  Update local repository to the newest commit<br>
+  git pull origin < branch_name ><br>
+  Pull changes from remote repository<br>
+  git remote add origin ssh://git@github.com/[username]/[repository-name].git<br>
+  Add a remote repository<br>
+  git remote set-url origin ssh://git@github.com/[username]/[repository-name].git<br>
+  Set a repository's origin branch to SSH<br>
+  ## Log:<br>
+  
+  git log<br>
+  View changes<br>
+  git log --summary<br>
+  View changes (detailed)<br>
+  git diff < source_branch > < target_branch ><br>
+  Preview changes before merging<br>
+
+</div>
+<div *ngIf="blogid==='angular-dev-environment'">
+  <h4>Angular-Capacitor-Firebase-Setup</h4><br>
+  <h4>Angular Cordova GCloud Firebase development environment setup</h4><br>
+  
+  The development environment setup in this episode will further be utilized in multiple desktop, web and mobile apps development in near future.<br>
+  
+  [Click here for Video Tutorials !](https://www.youtube.com/watch?v=Tua9Cbw_YgU&list=PLp0TENYyY8lF1I4EgKLcwRvxy820BgWpd)<br>
+  
+  <h4>Introduction:</h4><br>
+  Angular is framework supported by Google, which lets you build Progressive Web apps, mobile apps for iOS, Android, Windows environment and desktop software for Windows, Mac and Linux machines.
+  www.angular.io
+  
+  <h4>Single Codebase, Server-less or multiple platforms/database:</h4><br>
+  My goal for this Angular development environment setup is to build, real world applications using a single code base for desktop and mobile apps.
+  I will try to setup my development environment in such way, that a single code base can serve desktop, mobile apps for different platform. Like iOS, Android, Windows and Linux desktop and mobile apps.
+  
+  Also, my goal is use same codebase to support different hosting and databases with minimal changes.
+  
+  <h4>Let’s get started :-</h4><br>
+  
+  <h4>Step 1 (Optional): github</h4><br>
+  Setup your GitHub account and environment<br><br>
+  
+  https://github.com/AmitXShukla/GitHub-Hello-World<br>
+  
+  Windows -> Env Variables -> Path -> Add < C:\amit.io\Program\PortableGit\cmd ><br>
+  
+  Please make sure to familiarize yourself with gitignore, git commands, git desktop, git pages, GCloud (optional) and Stackblitz (optional).<br>
+  
+  <h4>Step 2: Install a text editor of your choice</h4><br>
+  vscode, sublime or atom<br><br>
+  
+  For using vscode, install plugings<br>
+  Angular Language Service, Auto Import plugin<br>
+  
+  and update vscode settings -> Settings -> git.path=< git installation > (C:\\\amit.io\\\Program\\\PortableGit\\\cmd\\\git)<br><br>
+    
+    
+  <h4>Step 3. Node JS and NPM installation</h4><br>
+  https://nodejs.org/en/<br><br>
+  
+  NodeJs comes up with NPM, So no separate NPM installation is required<br>
+  
+  Please pick latest Current release. (I prefer zip version for windows)<br>
+  
+  in case of zip version, update Windows -> Env Variables -> Path -> Add < C:\amit.io\Program\node ><br><br>
+  
+  <h4>Validate Node and NPM installation</h4><br>
+  
+  Verify that you are running at least node 6.9.x and npm 3.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.<br>
+  
+  (https://angular.io/guide/quickstart) - refer to this link for least node, npm requirement by Angular.<br><br>
+  
+    1. Command prompt -> node -v<br>
+    2. Command prompt -> npm -v<br>
+    <br>
+  check windows/ios/linux node environment variable to confirm node installation<br><br>
+  
+  <h4>Step 4: Install Angular CLI</h4><br><br>
+  
+  install @angular-cli<br>
+  
+  npm install -g @angular/cli<br>
+  
+  #### Validate @angular/cli<br>
+  ng -v<br>
+  
+  ### Step 5 (Optional): Cordova install<br>
+  
+  npm install -g cordova<br>
+  
+  ### Step 6 (Optional): firebase-tools<br>
+  *** update instructions<br><br>
+  
+  ### Step 7: Create a new cordova project<br>
+  
+  cordova create elishio<br>
+  cd elishio<br>
+  cordova platform add browser<br>
+  cordova run browser<br>
+  cordova plugin remove cordova-plugin-whitelist<br>
+  cordova plugin add cordova-plugin-whitelist<br>
+  
+  elishio -> dir / ls<br><br>
+  ### create a new < src > directory inside your cordova app. This is the directory where Angular app will reside.<br><br>
+    
+  mkdir src<br>
+  
+  cd src<br>
+  
+  ng new elishio // elishio is your new Angular App<br>
+  
+  ### now your angular app is ready, it's time to setup<br>
+  
+  #### update .gitignore file<br>
+  
+  Environment.ts<br>
+  Environment.prod.ts<br>
+  
+  #### update Angular CLI and configuration<br>
+  Angular/Cli - assets directory<br>
+  update polyfill<br>
+  
+  #### Package.json<br>
+  In the simplest terms, the tilde matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.
+  The caret, on the other hand, is more relaxed. It will update you to the most recent major version (the first number). ^1.2.3 will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.
+  
+  Talk about polyfill (update webanimations, hammerjs)<br>
+  Angular-cli.json - talk about assets<br>
+  Ng build -prod<br>
+  
+  ### Step 8: build a browser, android and iOS app<br>
+  Install and Configure Android Studio<br>
+  
+  ### Step 9 (Optional): npm install electron<br>
+  *** update instructions here<br>
+  build a desktop app<br>
+  
+  ### Step 10: Firebase hosting<br>
+  
+  https://www.npmjs.com/package/firebase-tools<br>
+  
+  npm install -g firebase-tools<br>
+  
+  firebase init<br>
+  
+  firebase login<br>
+  
+  firebase deploy<br>
+  
+  
+  ### Step 11: GCloud Hosting<br>
+  *** update instructions here<br>
+  
+  ### Step 12: Github/Stackbliz hosting<br>
+  *** update instructions here<br>
+  
+  ### Step 13: (Optional): npm update --save<br>
+  *** update instructions here<br>
+  Always keep your NPM packages current.<br>
+  
+  ### Step 14 (Optional) : Angular Universal Server Side Rendering<br>
+  *** update instructions here<br>
+  Advantages<br>
+    1. SEO<br>
+    2. Android and iOS Cordova apps using firebase / social plugin / outh - or use any redirect URL page<br>
+    
+  
+</div>

@@ -56,46 +56,46 @@ JavaScript project with module loading support. For example, using Webpack or Ro
 -------------------------------------------
 <h5>Adding Capacitor to an existing web app</h5>
 Capacitor was designed to drop-in to any existing modern JS web app.<br>
-To add Capacitor to your web app, run the following commands:<br><br>
+To add Capacitor to your web app, run the following commands:
 
-<h5>$ cd my-app</h5><br>
-<h5>$ npm install --save @capacitor/core @capacitor/cli</h5><br>
+<h5>$ cd my-app</h5>
+<h5>$ npm install --save @capacitor/core @capacitor/cli</h5>
 Then, init Capacitor with your app information. This will also install the default native platforms.
-<br><br>
-<h5>$ npx cap init</h5><br>
+<br>
+<h5>$ npx cap init</h5>
 This command will prompt you to enter the name of your app, the app id (used primarily as the package for android), and the directory of your app.<br>
 Capacitor is now installed in your project<br><br>
 
 npm run build // for npm projects<br>
-<h5>ng build </h5>// for Angular 6.0+ projects<br>
-ionic build // for Ionic projects<br>
+<h5>ng build </h5>// for Angular 6.0+ projects
+<h5>ionic build </h5>// for Ionic projects
 
 <h4>Capacitor : PWA - Progressive Web App</h4>
-<h5>With a Build System</h5> // if you are using Angular or React npm build (like ng build)<br><br>
+<h5>With a Build System</h5> // if you are using Angular or React npm build (like ng build)
 
-<h5>$ ng build --prod // first build your angular app</h5><br>
-<h5> ** make sure in angular.json file, outputPath = "www"</h5><br>
-<h5> ** make sure in capacitor.config.json file, webDir = "www"</h5><br>
-<h5> ** make sure in capacitor.config.json file, bundledWebRuntime = "false"</h5><br>
-<h5>$ npx cap add web</h5><br>
-<h5>$ npx cap copy web</h5><br>
-<h5>$ npx cap serve</h5><br><br>
+<h5>$ ng build --prod // first build your angular app</h5>
+<h5> ** make sure in angular.json file, outputPath = "www"</h5>
+<h5> ** make sure in capacitor.config.json file, webDir = "www"</h5>
+<h5> ** make sure in capacitor.config.json file, bundledWebRuntime = "false"</h5>
+<h5>$ npx cap add web</h5>
+<h5>$ npx cap copy web</h5>
+<h5>$ npx cap serve</h5><br>
 
 <h4>Capacitor : iOS</h4>
-<h5>$ npx cap add ios</h5><br>
-<h5>$ npx cap copy ios</h5><br>// Once your web code is built, it needs to be copied to each native project<br>
-<h5>$ npx cap open ios</h5><br><br>
+<h5>$ npx cap add ios</h5>
+<h5>$ npx cap copy ios</h5>// Once your web code is built, it needs to be copied to each native project
+<h5>$ npx cap open ios</h5>
 
 <h4>Capacitor : Android</h4>
-<h5>$ npx cap add android</h5><br>
-<h5>$ npx cap copy android</h5><br>// Once your web code is built, it needs to be copied to each native project<br>
-<h5>$ npx cap open android</h5><br><br>
+<h5>$ npx cap add android</h5>
+<h5>$ npx cap copy android</h5>// Once your web code is built, it needs to be copied to each native project
+<h5>$ npx cap open android</h5>
 
 <h4>Capacitor : Electron</h4>
-<h5>$ npx cap add electron</h5><br>
-<h5>$ npx cap copy electron</h5><br>// Once your web code is built, it needs to be copied to each native project<br>
-<h5>$ cd electron</h5><br>
-<h5>$ npm run electron:start</h5><br><br>
+<h5>$ npx cap add electron</h5>
+<h5>$ npx cap copy electron</h5>// Once your web code is built, it needs to be copied to each native project
+<h5>$ cd electron</h5>
+<h5>$ npm run electron:start</h5>
 
 <h4>Other helpful commands for PWA </h4>
 ** Directly call capacitor in your code<br>
@@ -112,28 +112,26 @@ if (!isAvailable) {<br>
   // Otherwise, make the call:<br>
   Camera.getPhoto()<br>
 }<br>
-<h5>Without a Build System</h5><br>
+<h5>Without a Build System</h5>
 ** update capacitor.config.json<br>
 {<br>
   "bundleWebRuntime": true<br>
-}<br><br>
-npx cap copy web<br>
+}<br>
+<h5>$ npx cap copy web</h5>
 In index.html, import capacitor.js before your app's JS:<br>
 < script src="capacitor.js" >< /script >  // remove extra space in script tag<br>
 < script src="your/app.js" >< /script >// remove extra space in script tag<br>
-npx cap serve<br>
+<h5>$ npx cap serve</h5>
 When you're ready to publish your Progressive Web App and share it with the world, just upload the contents of your web directory (default: public/<br>
 
-
 <h5>Commands to remember for later use</h5>
-npx cap copy
-npx cap open<br><br>
-npx cap serve // for progressive web apps<br><br>
-npx cap update<br>
-npm install really-cool-plugin<br>
-npx cap update // after plugin install<br>
-npx cap sync<br<>>
-<br>
+<h5>$ npx cap copy</h5>
+<h5>$ npx cap open</h5>
+<h5>$ npx cap serve </h5>// for progressive web apps<br>
+<h5>$ npx cap update</h5>
+<h5>$ npm install really-cool-plugin</h5>
+<h5>$ npx cap update // after plugin install</h5>
+<h5>$ npx cap sync</h5>
 <h5>Add this to package.json</h5>
 {<br>
   "scripts": {<br>

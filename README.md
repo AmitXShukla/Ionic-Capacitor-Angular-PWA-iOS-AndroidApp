@@ -20,7 +20,7 @@ I will try to setup my development environment in such way, that a single code b
 
 Also, my goal is use same codebase to support different hosting and databases with minimal changes.<br>
 
-<h4>Let’s get started :</h4>
+<h2>Let’s get started :</h2>
 -------------------------------------------
 
 I have been using Apache Cordova framework to build cross platform mobile apps. The reasons I want to try out and looking forward to Ionic Capacitor framework are
@@ -52,7 +52,8 @@ JavaScript project with module loading support. For example, using Webpack or Ro
 <h5>Electron - Capacitor Required Dependencies</h5>
 JavaScript project with module loading support. For example, using Webpack or Rollup<br>
 
-<h4>Development :</h4>
+<h2>Development :</h2>
+-------------------------------------------
 <h5>Adding Capacitor to an existing web app</h5>
 Capacitor was designed to drop-in to any existing modern JS web app.<br>
 To add Capacitor to your web app, run the following commands:<br><br>

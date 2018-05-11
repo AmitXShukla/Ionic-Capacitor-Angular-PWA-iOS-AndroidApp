@@ -4,7 +4,7 @@
 
 The development environment setup in this episode will further be utilized in multiple desktop, web and mobile apps development in near future.<br>
 
-[Click here for Video Tutorials !](https://www.youtube.com/watch?v=Tua9Cbw_YgU&list=PLp0TENYyY8lF1I4EgKLcwRvxy820BgWpd)
+<a href="https://youtu.be/ycbigsp23sA">[Click here for Video Tutorials !</a>
 
 <h4>Introduction:- Angular</h4>
 Angular is framework supported by Google, which lets you build Progressive Web apps, mobile apps for iOS, Android, Windows environment and desktop software for Windows, Mac and Linux machines.<br>
@@ -73,9 +73,11 @@ npm run build // for npm projects<br>
 <h4>Capacitor : PWA - Progressive Web App</h4>
 <h5>With a Build System</h5> // if you are using Angular or React npm build (like ng build)
 
+<h2>make sure to build Angular app (ng build) and publish to www directory with a valid index.html file inside it. Otherwise npx cap add electron will give an error.</h2>
+
 <h5>$ ng build --prod // first build your angular app</h5>
-<h5> ** make sure in angular.json file, outputPath = "www"</h5>
-<h5> ** make sure in capacitor.config.json file, webDir = "www"</h5>
+<h2> ** make sure in angular.json file, outputPath = "www"</h2>
+<h2> ** make sure in capacitor.config.json file, webDir = "www"</h2>
 <h5> ** make sure in capacitor.config.json file, bundledWebRuntime = "false"</h5>
 <h5>$ npx cap add web</h5>
 <h5>$ npx cap copy web</h5>

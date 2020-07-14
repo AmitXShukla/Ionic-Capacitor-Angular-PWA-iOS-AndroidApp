@@ -1,3 +1,7 @@
+```diff
++ if you like this project, Please consider,
+- following me on GitHub & a generous STAR * to this repository.
+```
 <h2>Deploy Angular 6.0 (HTML, JS, CSS) App to cross platform mobile, web and desktop using Ionic Capacitor</h2>
 
 <h4>Objective:</h4>
